@@ -30,6 +30,7 @@ public class BaseDAO {
 		}
 		return instance;
 	}
+	//pour rien
 
 	// -------------------------------------------------
 	/**
