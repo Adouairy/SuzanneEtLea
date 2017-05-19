@@ -91,7 +91,7 @@ public class BaseDAO {
 				return resultat;
 			}	
 		}
-		
+		return resultat;
 	}
 	
 	/**
@@ -122,7 +122,9 @@ public class BaseDAO {
 		Iterator medecin = session.iterate("from Medecin ");
 		while (medecin.hasNext()) {
 		Medecin medecin = (Medecin) medecin.next();
-		//if (medecin.nom)
+		if (medecin.nom.equals(nom)) {
+			return Medecin;
+		}
 		} 
 	}
 
