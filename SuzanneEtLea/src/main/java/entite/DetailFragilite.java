@@ -19,11 +19,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 @SuppressWarnings("unused")
 @Entity
-@Table(name = "aidant")
-public class Aidant implements Cloneable {
+@Table(name = "joueur")
+public class DetailFragilite implements Cloneable {
 	
 	@Id
-	@Column(name = "IDAIDANT", nullable = false)
+	@Column(name = "IDJOUEUR", nullable = false)
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 
@@ -50,7 +50,7 @@ public class Aidant implements Cloneable {
 	
 
 	// constructeurs
-	public Aidant() {
+	public DetailFragilite() {
 		
 	}
 
@@ -61,7 +61,7 @@ public class Aidant implements Cloneable {
 	 * @param actif
 	 * @throws ParseException 
 	 */
-	public Aidant(String nom, String prenom, String ddn, String sexe, String nationalite, Integer rang) throws ParseException {
+	public DetailFragilite(String nom, String prenom, String ddn, String sexe, String nationalite, Integer rang) throws ParseException {
 		setNom(nom);
 		setPrenom(prenom);
 		setDdn(ddn);
