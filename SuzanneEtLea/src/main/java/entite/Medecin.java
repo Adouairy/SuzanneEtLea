@@ -48,7 +48,11 @@ public class Medecin implements Cloneable {
 	@Column(name = "ACTIF", length = 32, nullable = true)
 	private Boolean actif=true;
 	
-
+	@OneToMany(mappedBy="medecin", cascade={CascadeType.ALL})
+	private Set<Aide> aide= new HashSet<Aide>();
+	
+	@OneToMany(mappedBy="medecin", cascade={CascadeType.ALL})
+	private Set<CompteRendu> cr= new HashSet<CompteRendu>();
 	// constructeurs
 	public Medecin() {
 		

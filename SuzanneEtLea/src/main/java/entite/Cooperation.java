@@ -13,41 +13,25 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 @SuppressWarnings("unused")
-@Entity
+@IdClass(Cooperation.class)
 @Table(name = "joueur")
 public class Cooperation implements Cloneable {
 	
 	@Id
-	@Column(name = "IDJOUEUR", nullable = false)
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
-
-	@Column(name = "NOM", length = 50, nullable = true)
-	private String nom;
-
-	@Column(name = "PRENOM", length = 50, nullable = true)
-	private String prenom;
-
-	@Column(name = "DDN", nullable = true)
-	private Date ddn;
-
-	@Column(name = "SEXE", length = 50, nullable = true)
-	private String sexe;
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="ID", nullable=true)
+	private Aide aide;
 	
-	@Column(name = "NATIONALITE", length = 50, nullable = true)
-	private String nationalite;
-	
-	@Column(name = "RANG", length = 11, nullable = true)
-	private Integer rang;
-	
-	@Column(name = "ACTIF", length = 32, nullable = true)
-	private Boolean actif=true;
-	
+	@Id
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="IDAIDANT", nullable=true)
+	private Aidant aidant;
 
 	// constructeurs
 	public Cooperation() {
